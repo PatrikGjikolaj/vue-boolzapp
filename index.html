@@ -11,11 +11,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
 </head>
 <body>
-    <div id="app" class="container-fluid p-3 bg_gren_grad">
-        <div class="container full_size">
+    <div id="app" class="container-fluid p-md-3 p-0 bg_gren_grad">
+        <div class="container-md full_size">
             <div class="row d-flex">
                 <!-- Sezione dell'utente -->
-                <div class="col-4">
+                <div class="col-md-4 col-sm-12 col-xs-12">
                     <!-- Utente e navigazione -->
                     <div class="row bg_grey">
                         <!-- Foto e nome utente -->
@@ -48,28 +48,30 @@
                     </div>
                     <!-- Sezione delle conversazioni -->
                     <div class="row full_size_chat scroll_bar">
-                        <div class="col-12 d-flex bg_white align-items-center altezza_75" v-for="(utenti, c) in contacts">
-                            <div class="col-1">
-                                <img :src="utenti.avatar" alt="" class="rounded-circle fotoProfilo">
-                            </div>
-                            <div class="col-8 px-1">
-                                <span class="fw-bold font_15">{{utenti.name}}</span><br>
-                                <span class="fw-light font_14">{{utenti.messages[utenti.messages.length-1].message}}</span>
-                            </div>
-                            <div class="col-3 text-end">
-                                <span class="fw-light font_12">{{utenti.messages[utenti.messages.length-1].date}}</span>
-                            </div>
+                        <div class="col-12 bg_white altezza_70 border-top d-flex p-0" v-for="(utenti, c) in contacts">
+                            <button href="" class="btn btn-light border-0 rounded-0 d-flex align-items-center">
+                                <div class="col-1  d-flex align-items-center">
+                                    <img :src="utenti.avatar" alt="" class="rounded-circle fotoProfilo">
+                                </div>
+                                <div class="col-8 px-4 text-start">
+                                    <span class="fw-bold font_15">{{utenti.name}}</span><br>
+                                    <p class="fw-light font_14 lh-sm">{{utenti.messages[utenti.messages.length-1].message}}</p>
+                                </div>
+                                <div class="col-3 text-end">
+                                    <span class="fw-light font_12">{{utenti.messages[utenti.messages.length-1].date}}</span>
+                                </div>
+                            </button>
                         </div>
                     </div>
                 </div>
                 <!-- Sezione dei messaggi -->
-                <div class="col-8">
+                <div class="col-8 d-none d-md-block">
                     <!-- Nome utente conversazione -->
                     <div class="row align-items-center bg_grey altezza_70">
                         <div class="col-1">
                             <img src="./img/avatar_1.jpg" alt="" class="rounded-circle fotoProfilo">
                         </div>
-                        <div class="col-9">
+                        <div class="col-9 p-0">
                             <label for="" class="d-block fw-bold">Michele</label>
                             <span class="fw-light text-secondary font_14">Ultimo accesso oggi alle 12:00</span>
                         </div>
@@ -80,13 +82,13 @@
                         </div>
                     </div>
                     <!-- Messaggi -->
-                    <div class="row full_size_messages">         
-                        <div class="row bg_whatsApp pt-5 scroll_bar">
+                    <div class="row full_size_messages  scroll_bar">         
+                        <div class="col-12 bg_whatsApp pt-5" v-for="(utenti, c) in contacts">
                             <!-- Messaggi ricevuti -->
-                            <div class="col-12 my-1">
+                            <div class="col-12 my-1" v-if="utenti.messages[0].status === 'received'">
                                 <div class="badge text-bg-light p-2">
                                     <div>
-                                        <span>Messaggio ricevuti</span>
+                                        <span>{{utenti.messages[utenti.messages.length-1].message}}</span>
                                     </div>
                                     <div class="d-flex flex-row-reverse mt-2">
                                         <span>12.30</span>
@@ -94,10 +96,10 @@
                                 </div>
                             </div>
                             <!-- Messaggi inviati -->
-                            <div class="col-12 my-1 d-flex flex-row-reverse">
+                            <div class="col-12 my-1 d-flex flex-row-reverse" v-else>
                                 <div class="badge bg-success text-dark p-2">
                                     <div>
-                                        <span>Messaggio inviato</span>
+                                        <span>{{utenti.messages[utenti.messages.length-1].message}}</span>
                                     </div>
                                     <div class="d-flex flex-row-reverse mt-2">
                                         <span>12.30</span>
@@ -106,18 +108,18 @@
                             </div>
                         </div>
                         <!-- Barra scrittura messaggi -->
-                        <div class="row text-center bg_grey m-0 align-self-end text-secondary">
-                            <div class="col-1 d-flex align-items-center justify-content-center">
-                                <i class="fa-regular fa-face-smile"></i>
-                            </div>
-                            <div class="col-10 my-1 d-flex align-items-center justify-content-center">
-                                <input type="text" class="form-control" placeholder="Scrivi un messaggio">
-                            </div>
-                            <div class="col-1 d-flex align-items-center justify-content-center">
-                                <i class="fa-solid fa-microphone"></i>
-                            </div>
-                        </div>    
                     </div>
+                    <div class="row text-center bg_grey align-self-end text-secondary altezza_70">
+                        <div class="col-1 d-flex align-items-center justify-content-center">
+                            <i class="fa-regular fa-face-smile"></i>
+                        </div>
+                        <div class="col-10 my-1 d-flex align-items-center justify-content-center">
+                            <input type="text" class="form-control" placeholder="Scrivi un messaggio">
+                        </div>
+                        <div class="col-1 d-flex align-items-center justify-content-center">
+                            <i class="fa-solid fa-microphone"></i>
+                        </div>
+                    </div>    
                 </div>
             </div>
 
