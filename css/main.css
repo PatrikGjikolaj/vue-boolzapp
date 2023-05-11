@@ -1,0 +1,15 @@
+.fotoProfilo {
+    width: 2vw;
+}
+.bg_grey {
+    background-color: #eaeaea;
+}
+.bg_azure {
+    background-color: #8edafc;
+}
+.bg_white {
+    background-color: white;
+}
+.bg_gren_grad {
+    background: no-repeat linear-gradient(#009688 20%, #d2dbdb 20% 80%);
+}
