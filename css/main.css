@@ -13,3 +13,6 @@
 .bg_gren_grad {
     background: no-repeat linear-gradient(#009688 20%, #d2dbdb 20% 80%);
 }
+.bg_whatsApp {
+    background-image: url(../img/mine.jpg);
+}
