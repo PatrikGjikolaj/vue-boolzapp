@@ -14,7 +14,7 @@
     background: no-repeat linear-gradient(#009688 20%, #d2dbdb 20% 80%);
 }
 .bg_whatsApp {
-    background-image: url(../img/mine.jpg);
+    
 }
 .altezza_70 {
     min-height: 70px;
@@ -24,4 +24,34 @@
 }
 #app {
     height: 100vh;
+}
+.mute {
+    color: #009688;
+    padding: 8px;
+    border-radius: 50%;
+}
+.full_size {
+    height: calc(100vh - 1.0rem);
+}
+.full_size_messages {
+    height: calc(100vh - 70px - 1rem);
+    background-image: url(../img/mine.jpg);
+}
+.full_size_chat {
+    height: calc(100vh - 208px);
+}
+.scroll_bar {
+    overflow-y: auto;
+}
+.font_12 {
+    font-size: 12px;
+}
+.font_14 {
+    font-size: 14px;
+}
+.font_15 {
+    font-size: 15px;
+}
+input::placeholder {
+    font-size: 12px;
 }
