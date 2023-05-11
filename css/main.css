@@ -16,3 +16,12 @@
 .bg_whatsApp {
     background-image: url(../img/mine.jpg);
 }
+.altezza_70 {
+    min-height: 70px;
+}
+.altezza_75 {
+    min-height: 75px;
+}
+#app {
+    height: 100vh;
+}

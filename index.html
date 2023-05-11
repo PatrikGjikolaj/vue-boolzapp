@@ -19,7 +19,7 @@
                     <!-- Utente e navigazione -->
                     <div class="row bg_grey">
                         <!-- Foto e nome utente -->
-                        <div class="col-8 d-flex gap-2 p-2 align-items-center">
+                        <div class="col-8 d-flex gap-2 p-2 align-items-center altezza_70">
                             <img src="./img/avatar_io.jpg" alt="" class="rounded-circle fotoProfilo">
                             <label for="" class="fw-bold">Sofia</label>
                         </div>
@@ -31,7 +31,7 @@
                         </div>
                     </div>
                     <!-- Avviso attiva notifiche -->
-                    <div class="row bg_azure">
+                    <div class="row align-items-center bg_azure altezza_75">
                         <div class="col-1 d-flex align-items-center">
                             <i class="fa-regular fa-bell-slash"></i>
                         </div>
@@ -47,16 +47,16 @@
                         </div>
                     </div>
                     <!-- Sezione delle conversazioni -->
-                    <div class="row bg_white">
-                        <div class="col-3">
-                            <img src="./img/avatar_1.jpg" alt="" class="rounded-circle fotoProfilo">
+                    <div class="row bg_white align-items-center altezza_75" v-for="(utenti, c) in contacts">
+                        <div class="col-1">
+                            <img :src="utenti.avatar" alt="" class="rounded-circle fotoProfilo">
                         </div>
                         <div class="col-8">
-                            <span>Michele</span>
-                            <span>Ultimo messaggio inviato</span>
+                            <span>{{utenti.name}}</span><br>
+                            <span>{{utenti.messages[utenti.messages.length-1].message}}</span>
                         </div>
-                        <div class="col-1">
-                            <span>12.00</span>
+                        <div class="col-3">
+                            <span>{{utenti.messages[utenti.messages.length-1].date}}</span>
                         </div>
                     </div>
                 </div>
@@ -64,7 +64,7 @@
                 <div class="col-8">
                     <!-- Nome utente conversazione -->
                     <div class="row bg_grey">
-                        <div class="col-12 d-flex gap-2 p-2 align-items-center">
+                        <div class="col-12 d-flex gap-2 p-2 align-items-center altezza_70">
                             <div>
                                 <img src="./img/avatar_1.jpg" alt="" class="rounded-circle fotoProfilo">
                             </div>
@@ -78,7 +78,7 @@
                     <div class="row bg_whatsApp py-5">
                         <!-- Messaggi ricevuti -->
                         <div class="col-12 my-1">
-                            <div class="badge bg-success p-2">
+                            <div class="badge text-bg-light p-2">
                                 <div>
                                     <span>Messaggio ricevuti</span>
                                 </div>
@@ -89,7 +89,7 @@
                         </div>
                         <!-- Messaggi inviati -->
                         <div class="col-12 my-1 d-flex flex-row-reverse">
-                            <div class="badge bg-success p-2">
+                            <div class="badge bg-success text-dark p-2">
                                 <div>
                                     <span>Messaggio inviato</span>
                                 </div>
