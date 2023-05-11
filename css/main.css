@@ -1,6 +1,7 @@
-.fotoProfilo {
-    width: 50px;
-}
+/***************/
+/* Backgrounds */
+/***************/
+
 .bg_grey {
     background-color: #eaeaea;
 }
@@ -13,22 +14,30 @@
 .bg_gren_grad {
     background: no-repeat linear-gradient(#009688 20%, #d2dbdb 20% 80%);
 }
-.bg_whatsApp {
-    
+
+/*************/
+/* Font size */
+/*************/
+
+.font_12 {
+    font-size: 12px;
 }
+.font_14 {
+    font-size: 14px;
+}
+.font_15 {
+    font-size: 15px;
+}
+
+/************/
+/* Resizing */
+/************/
+
 .altezza_70 {
     min-height: 70px;
 }
 .altezza_75 {
     min-height: 75px;
-}
-#app {
-    height: 100vh;
-}
-.mute {
-    color: #009688;
-    padding: 8px;
-    border-radius: 50%;
 }
 .full_size {
     height: calc(100vh - 1.0rem);
@@ -40,17 +49,24 @@
 .full_size_chat {
     height: calc(100vh - 208px);
 }
+#app {
+    height: 100vh;
+}
+.fotoProfilo {
+    width: 50px;
+}
+
+/**************/
+/* Single use */
+/**************/
+
+.mute {
+    color: #009688;
+    padding: 8px;
+    border-radius: 50%;
+}
 .scroll_bar {
     overflow-y: auto;
-}
-.font_12 {
-    font-size: 12px;
-}
-.font_14 {
-    font-size: 14px;
-}
-.font_15 {
-    font-size: 15px;
 }
 input::placeholder {
     font-size: 12px;
