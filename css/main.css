@@ -14,7 +14,9 @@
 .bg_gren_grad {
     background: no-repeat linear-gradient(#009688 20%, #d2dbdb 20% 80%);
 }
-
+.bg_green {
+    background-color: #d5f9ba;
+}
 /*************/
 /* Font size */
 /*************/
@@ -33,6 +35,9 @@
 /* Resizing */
 /************/
 
+.altezza_45 {
+    height: 45px;
+}
 .altezza_70 {
     min-height: 70px;
 }
@@ -54,6 +59,9 @@
 }
 .fotoProfilo {
     width: 50px;
+}
+.full_width_messages {
+    max-width: 100%;
 }
 
 /**************/

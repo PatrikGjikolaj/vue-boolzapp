@@ -13,13 +13,13 @@
 <body>
     <div id="app" class="container-fluid p-md-3 p-0 bg_gren_grad">
         <div class="container-md full_size">
-            <div class="row d-flex">
+            <div class="row d-flex p-0">
                 <!-- Sezione dell'utente -->
                 <div class="col-md-4 col-sm-12 col-xs-12">
                     <!-- Utente e navigazione -->
-                    <div class="row bg_grey">
+                    <div class="row bg_grey altezza_70">
                         <!-- Foto e nome utente -->
-                        <div class="col-8 d-flex gap-2 p-2 align-items-center altezza_70">
+                        <div class="col-8 d-flex gap-2 p-2 align-items-center">
                             <img src="./img/avatar_io.jpg" alt="" class="rounded-circle fotoProfilo">
                             <label for="" class="fw-bold">Sofia</label>
                         </div>
@@ -41,7 +41,7 @@
                         </div>
                     </div>
                     <!-- Barra di ricerca conversazioni -->
-                    <div class="row">
+                    <div class="row altezza_45">
                         <div class="col-12 bg_grey p-1">
                             <input class="form-control" type="search" placeholder="Cerca o inizia una nuova chat">
                         </div>
@@ -49,16 +49,16 @@
                     <!-- Sezione delle conversazioni -->
                     <div class="row full_size_chat scroll_bar">
                         <div class="col-12 bg_white altezza_70 border-top d-flex p-0" v-for="(utenti, c) in contacts">
-                            <button href="" class="btn btn-light border-0 rounded-0 d-flex align-items-center">
+                            <button class="btn btn-light border-0 rounded-0 d-flex align-items-center" aria-pressed="true" data-bs-toggle="button">
                                 <div class="col-1  d-flex align-items-center">
                                     <img :src="utenti.avatar" alt="" class="rounded-circle fotoProfilo">
                                 </div>
                                 <div class="col-8 px-4 text-start">
                                     <span class="fw-bold font_15">{{utenti.name}}</span><br>
-                                    <p class="fw-light font_14 lh-sm">{{utenti.messages[utenti.messages.length-1].message}}</p>
+                                    <p class="fw-light font_14 lh-1 m-0">{{utenti.messages[utenti.messages.length-1].message}}</p>
                                 </div>
                                 <div class="col-3 text-end">
-                                    <span class="fw-light font_12">{{utenti.messages[utenti.messages.length-1].date}}</span>
+                                    <span class="fw-light font_12">{{utenti.messages[utenti.messages.length-1].date.split(" ")[0]}}</span>
                                 </div>
                             </button>
                         </div>
@@ -82,27 +82,27 @@
                         </div>
                     </div>
                     <!-- Messaggi -->
-                    <div class="row full_size_messages  scroll_bar">         
+                    <div class="row full_size_messages scroll_bar">         
                         <div class="col-12 pt-5" v-for="(utenti, c) in contacts">
                             <!-- Messaggi ricevuti -->
                             <div class="col-12 my-1" v-if="utenti.messages[0].status === 'received'">
-                                <div class="badge text-bg-light p-2">
+                                <div class="badge text-bg-light p-2 full_width_messages">
                                     <div>
-                                        <span>{{utenti.messages[utenti.messages.length-1].message}}</span>
+                                        <span>{{utenti.messages[0].message}}</span>
                                     </div>
                                     <div class="d-flex flex-row-reverse mt-2">
-                                        <span>12.30</span>
+                                        <span>{{utenti.messages[0].date.split(" ")[1]}}</span>
                                     </div>
                                 </div>
                             </div>
                             <!-- Messaggi inviati -->
                             <div class="col-12 my-1 d-flex flex-row-reverse" v-else>
-                                <div class="badge bg-success text-dark p-2">
+                                <div class="badge bg_green text-dark p-2 full_width_messages">
                                     <div>
-                                        <span>{{utenti.messages[utenti.messages.length-1].message}}</span>
+                                        <span>{{utenti.messages[0].message}}</span>
                                     </div>
                                     <div class="d-flex flex-row-reverse mt-2">
-                                        <span>12.30</span>
+                                        <span>{{utenti.messages[0].date.split(" ")[1]}}</span>
                                     </div>
                                 </div>
                             </div>
