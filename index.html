@@ -83,15 +83,15 @@
                     </div>
                     <!-- Messaggi -->
                     <div class="row full_size_messages scroll_bar">         
-                        <div class="col-12 pt-5" v-for="(msg, c) in contacts[changeValue].messages.message">
+                        <div class="col-12 pt-5" v-for="(msg, c) in contacts[changeValue].messages">
                             <!-- Messaggi ricevuti -->
-                            <div class="col-12 my-1" v-if="msg.messages.status === 'received'">
+                            <div class="col-12 my-1" v-if="msg.status === 'received'">
                                 <div class="badge badge_me bg-light p-2">
                                     <div class="text-dark">
-                                        <span>{{msg.messages.message}}</span>
+                                        <span>{{msg.message}}</span>
                                     </div>
                                     <div class="d-flex flex-row-reverse mt-2 fw-light text-dark">
-                                        <!-- <span>{{msg.messages[0].date.split(" ")[1]}}</span> -->
+                                        <span>{{msg.date.split(" ")[1]}}</span>
                                     </div>
                                 </div>
                             </div>
@@ -99,10 +99,10 @@
                             <div class="col-12 my-1 d-flex flex-row-reverse" v-else>
                                 <div class="badge badge_me bg_green p-2">
                                     <div class="text-dark">
-                                        <span>{{msg.message.message}}</span>
+                                        <span>{{msg.message}}</span>
                                     </div>
                                     <div class="d-flex flex-row-reverse mt-2 fw-light text-dark">
-                                        <!-- <span>{{msg.messages[0].date.split(" ")[1]}}</span> -->
+                                        <span>{{msg.date.split(" ")[1]}}</span>
                                     </div>
                                 </div>
                             </div>
