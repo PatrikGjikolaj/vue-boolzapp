@@ -48,8 +48,8 @@
                     </div>
                     <!-- Sezione delle conversazioni -->
                     <div class="row full_size_chat scroll_bar">
-                        <div class="col-12 bg_white altezza_70 border-top d-flex p-0" v-for="(utenti, c) in contacts">
-                            <button class="btn btn-light border-0 rounded-0 d-flex align-items-center" aria-pressed="true" data-bs-toggle="button">
+                        <div class="col-12 bg_white altezza_70 border-top d-flex p-0" v-for="(utenti, c) in contacts" @click="changeValue = c">
+                            <button class="btn btn-light border-0 rounded-0 d-flex align-items-center">
                                 <div class="col-1  d-flex align-items-center">
                                     <img :src="utenti.avatar" alt="" class="rounded-circle fotoProfilo">
                                 </div>
@@ -69,11 +69,11 @@
                     <!-- Nome utente conversazione -->
                     <div class="row align-items-center bg_grey altezza_70">
                         <div class="col-1">
-                            <img src="./img/avatar_1.jpg" alt="" class="rounded-circle fotoProfilo">
+                            <img :src="contacts[changeValue].avatar" alt="" class="rounded-circle fotoProfilo">
                         </div>
                         <div class="col-9 p-0">
-                            <label for="" class="d-block fw-bold">Michele</label>
-                            <span class="fw-light text-secondary font_14">Ultimo accesso oggi alle 12:00</span>
+                            <label for="" class="d-block fw-bold">{{contacts[changeValue].name}}</label>
+                            <span class="fw-light text-secondary font_14">Ultimo accesso {{contacts[changeValue].messages[contacts[changeValue].messages.length-1].date}}</span>
                         </div>
                         <div class="col-2 text-secondary d-flex justify-content-end gap-3">
                             <i class="fa-solid fa-magnifying-glass"></i>
@@ -83,26 +83,26 @@
                     </div>
                     <!-- Messaggi -->
                     <div class="row full_size_messages scroll_bar">         
-                        <div class="col-12 pt-5" v-for="(utenti, c) in contacts">
+                        <div class="col-12 pt-5" v-for="(msg, c) in contacts[changeValue].messages.message">
                             <!-- Messaggi ricevuti -->
-                            <div class="col-12 my-1" v-if="utenti.messages[0].status === 'received'">
-                                <div class="badge text-bg-light p-2 full_width_messages">
-                                    <div>
-                                        <span>{{utenti.messages[0].message}}</span>
+                            <div class="col-12 my-1" v-if="msg.messages.status === 'received'">
+                                <div class="badge badge_me bg-light p-2">
+                                    <div class="text-dark">
+                                        <span>{{msg.messages.message}}</span>
                                     </div>
-                                    <div class="d-flex flex-row-reverse mt-2">
-                                        <span>{{utenti.messages[0].date.split(" ")[1]}}</span>
+                                    <div class="d-flex flex-row-reverse mt-2 fw-light text-dark">
+                                        <!-- <span>{{msg.messages[0].date.split(" ")[1]}}</span> -->
                                     </div>
                                 </div>
                             </div>
                             <!-- Messaggi inviati -->
                             <div class="col-12 my-1 d-flex flex-row-reverse" v-else>
-                                <div class="badge bg_green text-dark p-2 full_width_messages">
-                                    <div>
-                                        <span>{{utenti.messages[0].message}}</span>
+                                <div class="badge badge_me bg_green p-2">
+                                    <div class="text-dark">
+                                        <span>{{msg.message.message}}</span>
                                     </div>
-                                    <div class="d-flex flex-row-reverse mt-2">
-                                        <span>{{utenti.messages[0].date.split(" ")[1]}}</span>
+                                    <div class="d-flex flex-row-reverse mt-2 fw-light text-dark">
+                                        <!-- <span>{{msg.messages[0].date.split(" ")[1]}}</span> -->
                                     </div>
                                 </div>
                             </div>

@@ -60,9 +60,6 @@
 .fotoProfilo {
     width: 50px;
 }
-.full_width_messages {
-    max-width: 100%;
-}
 
 /**************/
 /* Single use */
@@ -81,4 +78,9 @@ input::placeholder {
 }
 button {
     width: 100%;
+}
+.badge_me {
+    max-width: 80%;
+    text-align: start!important;
+    white-space: pre-wrap!important;
 }
