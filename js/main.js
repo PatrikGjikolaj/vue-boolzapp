@@ -3,6 +3,7 @@ const { createApp } = Vue
   createApp({
     data() { 
         return {
+            chatName: "",
             changeValue: 0,
             inputMsg: {
                 date: new Date().toLocaleString(),
@@ -192,7 +193,22 @@ const { createApp } = Vue
                 }
                 
                 setTimeout(() => this.contacts[this.changeValue].messages.push(risposta), 2000)
-            }
+            },
+
+            isInPage() {
+                for (let index = 0; index < this.contacts.length; index++) {
+                    const element = this.contacts[index];
+                    if (element.name.includes(this.chatName)) {
+                        element.visible = true;
+                        console.log(element)
+                    }
+                    else {
+                        element.visible = false;
+                        console.log(element)
+                    }
+                    
+                }
+            },
 
         },
     
