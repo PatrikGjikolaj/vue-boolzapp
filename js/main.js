@@ -4,6 +4,11 @@ const { createApp } = Vue
     data() { 
         return {
             changeValue: 0,
+            inputMsg: {
+                date: "",
+                message: "",
+                status: "sent",
+            },
             contacts: [
                 {
                     name: 'Michele',
@@ -169,4 +174,17 @@ const { createApp } = Vue
             ]
         }
     },
+        methods: {
+            inserisciMsg() {
+                
+                let nuovoMsg = {
+                    date:"",
+                    message: this.inputMsg.message,
+                    status: "sent",
+                }
+                console.log(this.inputMsg.message)
+                this.contacts[this.changeValue].messages.push(nuovoMsg);
+            },
+        },
+    
 }).mount("#app");
