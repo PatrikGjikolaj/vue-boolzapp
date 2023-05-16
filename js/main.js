@@ -182,9 +182,18 @@ const { createApp } = Vue
                     message: this.inputMsg.message,
                     status: "sent",
                 }
-                console.log(this.inputMsg.date)
+
                 this.contacts[this.changeValue].messages.push(nuovoMsg);
-            },
+                
+                let risposta = {
+                    date: new Date().toLocaleString(),
+                    message: "ciao",
+                    status: "received",
+                }
+                
+                setTimeout(() => this.contacts[this.changeValue].messages.push(risposta), 2000)
+            }
+
         },
     
 }).mount("#app");
