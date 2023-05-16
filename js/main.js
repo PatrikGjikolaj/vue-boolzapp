@@ -5,7 +5,7 @@ const { createApp } = Vue
         return {
             changeValue: 0,
             inputMsg: {
-                date: "",
+                date: new Date().toLocaleString(),
                 message: "",
                 status: "sent",
             },
@@ -178,11 +178,11 @@ const { createApp } = Vue
             inserisciMsg() {
                 
                 let nuovoMsg = {
-                    date:"",
+                    date: this.inputMsg.date,
                     message: this.inputMsg.message,
                     status: "sent",
                 }
-                console.log(this.inputMsg.message)
+                console.log(this.inputMsg.date)
                 this.contacts[this.changeValue].messages.push(nuovoMsg);
             },
         },
