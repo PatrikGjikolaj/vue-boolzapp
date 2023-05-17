@@ -190,6 +190,7 @@ const { createApp } = Vue
                 }
 
                 this.contacts[this.changeValue].messages.push(nuovoMsg);
+                this.inputMsg.message = "";
                 
                 let risposta = {
                     date: new Date().toLocaleString(),
@@ -197,7 +198,8 @@ const { createApp } = Vue
                     status: "received",
                 }
                 
-                setTimeout(() => this.contacts[this.changeValue].messages.push(risposta), 2000)
+                setTimeout(() => this.contacts[this.changeValue].messages.push(risposta), 2000);
+                
             },
 
             isInPage() {
