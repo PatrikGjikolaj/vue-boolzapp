@@ -50,6 +50,7 @@
 .full_size_messages {
     height: calc(100vh - 140px - 1rem);
     background-image: url(../img/mine.jpg);
+    align-content: baseline;
 }
 .full_size_chat {
     height: calc(100vh - 208px);
