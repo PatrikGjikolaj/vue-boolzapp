@@ -80,7 +80,7 @@ button {
     width: 100%;
 }
 .badge_me {
-    max-width: 80%;
+    max-width: 100%;
     text-align: start!important;
     white-space: pre-wrap!important;
 }

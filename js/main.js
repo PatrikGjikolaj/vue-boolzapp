@@ -6,9 +6,14 @@ const { createApp } = Vue
             chatName: "",
             changeValue: 0,
             inputMsg: {
-                date: new Date().toLocaleString(),
+                date: "",
                 message: "",
                 status: "sent",
+            },
+            risposta: {
+                date: "",
+                message: "",
+                status: "received",
             },
             contacts: [
                 {
@@ -179,7 +184,7 @@ const { createApp } = Vue
             inserisciMsg() {
                 
                 let nuovoMsg = {
-                    date: this.inputMsg.date,
+                    date: new Date().toLocaleString(),
                     message: this.inputMsg.message,
                     status: "sent",
                 }
@@ -198,18 +203,13 @@ const { createApp } = Vue
             isInPage() {
                 for (let index = 0; index < this.contacts.length; index++) {
                     const element = this.contacts[index];
-                    if (element.name.includes(this.chatName)) {
+                    if (element.name.toLowerCase().includes(this.chatName)) {
                         element.visible = true;
-                        console.log(element)
                     }
                     else {
                         element.visible = false;
-                        console.log(element)
                     }
-                    
                 }
             },
-
         },
-    
 }).mount("#app");
